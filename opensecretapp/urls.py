@@ -14,8 +14,8 @@ urlpatterns = [
     url(r'^logout/$', Logout, name="logout"),
     # url(r'^password/$', change_password, name='change_password'),
     url(r'^home/$', HomeView.as_view(), name="home"),
-    url(r'^viewprofile/(?P<value>\D+)$', UserProfileView.as_view(), name="viewprofile"),
+    url(r'^viewprofile/(?P<value>\D+)/$', UserProfileView.as_view(), name="viewprofile"),
     url(r'^messages/$', MessagesListView.as_view(), name='messages'),
     url(r'^outbox/$', OutBoxListView.as_view(), name='outbox'),
-    url(r'^updateprofile/(?P<pk>\d+)$', UpdateProfileView.as_view(), name='updateprofile'),
+    url(r'^updateprofile/(?P<pk>\d+)/$', UpdateProfileView.as_view(), name='updateprofile'),
 ]

@@ -133,7 +133,7 @@ class UserProfileView(LoginRequiredMixin,View):
             r = User.objects.get(username=value[0])
             # print(s.username)
             # print(r.username)
-            m = Message(msg=msg,sender=User.objects.get(id=self.request.user.id),receiver=User.objects.get(username=value[0]))
+            m = Message(msg=msg,sender=OpenSecretUser.objects.get(id=self.request.user.id),receiver=OpenSecretUser.objects.get(user__username=value[0]))
             m.save()
             u=OpenSecretUser.objects.get(user__username=value[0])
             u=OpenSecretUser.objects.get(user=User.objects.get(username=value[0]))

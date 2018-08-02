@@ -47,11 +47,6 @@ transform: translate(-80%,-80%) rotate(15deg);
 text-decoration:underline;
 }
 
-.download {
-background-image: url(/static/animated_save_icon.gif);
-background-size:100%;
-}
-
 .hero {
 
 	background-position: center top;

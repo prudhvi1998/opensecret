@@ -35,24 +35,6 @@ left: 80%;
 transform: translate(-80%,-80%) rotate(15deg);
 }
 
-
-.pic1{
-}
-
-.pic2{
-
-}
-
-.pic3{
-background-image: url(/static/Coding.gif);
-background-size:cover;
-}
-
-.pic4{
-background-image: url(/static/search-engine-machine.gif);
-background-size:cover;
-}
-
 .header {
     background-color: white;
     color:black;

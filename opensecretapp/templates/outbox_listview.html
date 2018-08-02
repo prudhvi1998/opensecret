@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OutBox</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="icon"
+      type="image/png"
+      href="{% static 'secret2.jpg' %}" />
+    <style>
+        .dp{
+        display:inline-block;
+        float:center;
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        border: 1px solid #8600b3;
+       }
+        .pro_pic{
+        display:inline-block;
+        float:center;
+        height: 120px;
+        width: 120px;
+        border-radius: 120px;
+        border: 2px solid #8600b3;
+        transition: width 2s, height 2s, transform 0.5s;
+       }
+       .pro_pic:hover{
+        height: 300px;
+        width: 300px;
+        border-radius: 20px;
+        border:2px solid #0066ff;
+        transform: rotate(360deg);
+       }
+       .chip {
+        display: inline-block;
+        padding:  20px;
+        border: 2px solid #990099;
+        border-radius: 25px;
+        height: 200px;
+        width: 500px;
+        }
+        .chip img {
+        float: left;
+        padding-top:0px;
+        vertical-align:center;
+        border: 3px solid #122334;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        }
+        .chip img:hover {
+        border: 3px solid #FFFFFF;
+        transform: scale(1.1);
+        transition: 0.5s ease-out;
+        }
+    </style>
+    <center>
+    <h2 style="font-family:Old English Text MT;font-size:100px">OPEN SECRET</h2>
+    </center>
+</head>
+{% block body %}
+<body>
+<center>
+    <h2><img class="pro_pic" src="{{ currentuser.pro_pic.url }}"/> {{ currentuser.user.username }}
+        <a href="{% url 'opensecretapp:logout' %}"><button class="btn btn-sm outline logout">Logout</button></a>
+    </h2>
+    <br>
+    <a href="{% url 'opensecretapp:updateprofile' currentuser.id %}"><button class="btn update">Edit Profile</button></a>
+    <a href="{% url 'opensecretapp:messages' %}"><button class="btn inbox">Inbox</button></a>
+    <a href="{% url 'opensecretapp:home' %}"><button class="btn home">Home</button></a>
+    <br><br>
+    <table style='text-align:center;' class="table table-hover">
+        <tr>
+            <td>
+                <b>PRO PIC</b>
+            </td>
+            <td>
+                <b>USERNAME</b>
+            </td>
+            <td>
+                <b>MESSAGE</b>
+            </td>
+            <td>
+                <b>SENT ON</b>
+            </td>
+        </tr>
+        {% for message in messages %}
+        <tr>
+            <td>
+                <img class="dp" src="{{ MEDIA_URL|add:message.receiver__pro_pic }}"/>
+            </td>
+            <td>
+                {{ message.receiver__user__username }}
+            </td>
+            <td>
+                {{ message.msg }}
+            </td>
+            <td>
+                {{ message.d_t }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+{% endblock %}
+</html>

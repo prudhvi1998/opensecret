@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ userprofile.user.username }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="icon"
+      type="image/png"
+      href="{% static 'secret2.jpg' %}" />
+    <style>
+        .pro_pic{
+        display:inline-block;
+        float:center;
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+        border: 2px solid #8600b3;
+        transition: width 2s, height 2s, transform 0.5s;
+       }
+       .pro_pic:hover{
+        border:2px solid #0066ff;
+        transform: scale(1.1);
+       }
+       .chip {
+        display: inline-block;
+        padding:  20px;
+        border: 3px solid #33bbff;
+        border-radius: 25px;
+        height: 200px;
+        width: 500px;
+        }
+        .chip img {
+        float: left;
+        padding-top:0px;
+        vertical-align:center;
+        }
+    </style>
+    <center>
+    <h2 style="font-family:Old English Text MT;font-size:100px">OPEN SECRET</h2>
+    </center>
+</head>
+<body>
+<center><br>
+    <div class="chip">
+            <img class="pro_pic" src="{{ userprofile.pro_pic.url }}" alt="Pro-Pic">
+        <div>
+        <b class="username" style="font-size:20px;font-style: italic;">{{ userprofile.user.username }}</b><br>
+        <b class="name" style="font-size:15px;">{{ userprofile.user.first_name }} {{ userprofile.user.last_name }}</b><br>
+        <b class="description" style="font-size:10px;">{{ userprofile.description }}</b><br>
+    <br>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-m messagebtn" type="submit" value="Send">
+    </form><br>
+    <label>Don't wanna Poke?? Let's Check others!!</label><br>
+    <a href="{% url 'opensecretapp:home' %}"><button class="btn logout">Home</button></a>
+</center>
+</body>
+</html>

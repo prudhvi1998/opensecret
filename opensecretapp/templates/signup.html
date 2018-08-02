@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="icon"
+      type="image/png"
+      href="{% static 'secret2.jpg' %}" />
+    <center>
+    <h2 style="font-family:Old English Text MT;font-size:100px">OPEN SECRET</h2>
+    </center>
+</head>
+<body>
+<pre class="f1">
+    Every one
+    has secrets about
+    something!!
+</pre>
+<pre class="f2">
+    Some have
+    secret Anger!!
+</pre>
+<pre class="f3">
+    Some have
+    secret Crush!!
+</pre>
+<pre class="f4">
+    Some have
+    secret Love!!
+</pre>
+<br><br>
+<center>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-m btn-info signup" type="submit" value="Signup">
+    <br><br>
+</form>
+    <label>Already a User?? Login Now!!</label><br>
+<a href="{% url 'opensecretapp:login' %}"><button class="btn btn-lg btn-success login" value="Login">Login</button></a>
+    <h6 class="white">&copy</h6>
+    <a href="https://www.facebook.com/prudhvi.potnuru.7" class="btn btn-lg btn-primary outline fb" target="_blank" id="facebook">Facebook</a>
+    <a href="https://www.instagram.com/prudhvipotnuru/" class="btn btn-lg btn-warning outline insta" target="_blank" id="instagram">Instagram</a>
+    <a href="https://www.youtube.com/watch?v=eAZS41vMSjI&list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj&t=106" class="btn btn-lg btn-danger outline youtube" target="_blank" id="youtube">Youtube</a>
+    <br><br>
+</center>
+</body>
+</html>

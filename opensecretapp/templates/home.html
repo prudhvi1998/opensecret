@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="icon"
+      type="image/png"
+      href="{% static 'secret2.jpg' %}" />
+    <style>
+        .pro_pic{
+        display:inline-block;
+        float:center;
+        height: 120px;
+        width: 120px;
+        border-radius: 120px;
+        border: 2px solid #8600b3;
+        transition: width 2s, height 2s, transform 0.5s;
+       }
+       .pro_pic:hover{
+        height: 300px;
+        width: 300px;
+        border-radius: 20px;
+        border:2px solid #0066ff;
+        transform: rotate(360deg);
+       }
+       .chip {
+        display: inline-block;
+        padding:  20px;
+        border: 3px solid #33bbff;
+        border-radius: 25px;
+        height: 200px;
+        width: 500px;
+        }
+        .chip img {
+        float: left;
+        padding-top:0px;
+        vertical-align:center;
+        border: 3px solid #00cc66;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        transition: 0.5s;
+        }
+        .chip img:hover {
+        border: 3px solid #FFFFFF;
+        transform: scale(2);
+        }
+    </style>
+    <center>
+    <h2 style="font-family:Old English Text MT;font-size:100px">OPEN SECRET</h2>
+    </center>
+</head>
+<body class="pic1">
+<center>
+    <h2><img class="pro_pic" src="{{ currentuser.pro_pic.url }}"/> {{ currentuser.user.username }}
+        <a href="{% url 'opensecretapp:logout' %}"><button class="btn btn-sm outline logout">Logout</button></a>
+    </h2>
+    <br>
+    <a href="{% url 'opensecretapp:outbox' %}"><button class="btn outboxbtn">Outbox</button></a>
+    <a href="{% url 'opensecretapp:updateprofile' currentuser.id %}"><button class="btn update">Edit Profile</button></a>
+    <a href="{% url 'opensecretapp:messages' %}"><button class="btn inbox">Inbox</button></a>
+    <br><br>
+    <h2>People</h2>
+    {% for userprofile in userprofiles %}
+        <div class="chip">
+            <img src="{{ userprofile.pro_pic.url }}" alt="Pro-Pic">
+            <div>
+                <b class="username" style="font-size:20px;font-style: italic;">{{ userprofile.user.username }}</b><br>
+                <b class="name" style="font-size:15px;">{{ userprofile.user.first_name }} {{ userprofile.user.last_name }}</b><br><br><br>
+                <a href="{% url 'opensecretapp:viewprofile' userprofile.user.username %}"><button class="btn btn-m messagebtn ">Message</button></a>
+            </div>
+        </div>
+        <br><br>
+    {% endfor %}
+</center>
+</body>
+</html>

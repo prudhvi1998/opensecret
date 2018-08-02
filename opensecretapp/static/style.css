@@ -1,0 +1,297 @@
+
+.f1{
+color:red;
+font-family : 'Lobster', cursive;
+position: absolute;
+top: 40%;
+left: 20%;
+transform: translate(-20%,-20%) rotate(-30deg);
+}
+
+.f2{
+color:#ff1393;
+font-family : 'Lobster', cursive;
+position: absolute;
+top: 40%;
+left: 80%;
+transform: translate(-20%,-80%) rotate(60deg);
+}
+
+.f3{
+color:blue;
+font-family : 'Lobster', cursive;
+position: absolute;
+top: 80%;
+left: 25%;
+transform: translate(-80%,-25%) rotate(-45deg);
+}
+
+.f4{
+color:#ff0066;
+font-family : 'Lobster', cursive;
+position: absolute;
+top: 80%;
+left: 80%;
+transform: translate(-80%,-80%) rotate(15deg);
+}
+
+
+.pic1{
+}
+
+.pic2{
+
+}
+
+.pic3{
+background-image: url(/static/Coding.gif);
+background-size:cover;
+}
+
+.pic4{
+background-image: url(/static/search-engine-machine.gif);
+background-size:cover;
+}
+
+.header {
+    background-color: white;
+    color:black;
+    text-align: center;
+    font-size:70px;
+    font-weight:300
+}
+
+.header:hover{
+text-decoration:underline;
+}
+
+.download {
+background-image: url(/static/animated_save_icon.gif);
+background-size:100%;
+}
+
+.hero {
+
+	background-position: center top;
+	background-size: cover;
+	padding: 20px 0;
+	margin: 100px;
+	font-family: 'Georgia', 'serif';
+}
+
+div.gallery {
+    border: 2px solid #122334;
+    border-radius:4px;
+    float: center;
+    width: 330px;
+    height:210px;
+    color:white;
+}
+
+div.gallery:hover {
+    border: 2px solid blue;
+    border-radius:4px;
+}
+
+.btn{
+width:100px;
+color:white;
+transition: width 0.5s;
+}
+
+.btn:hover{
+background-color:white;
+text-decoration: underline;
+width:200px;
+}
+
+.btn1{
+width:400px;
+height:300px;
+color:black;
+font-size:30px;
+text-align:center;
+}
+
+input[type=password] {
+  width: 150px;
+  border: 2px solid blue;
+  border-radius: 4px;
+  transition: width .5s;
+}
+input[type=password]:focus {
+  width: 300px;
+  border: 2px solid #990099;
+}
+
+input[type=text] {
+  width: 160px;
+  border: 2px solid red;
+  border-radius: 4px;
+  transition: width .5s;
+}
+
+input[type=text]:focus {
+  width: 320px;
+  border: 2px solid green;
+  background-color : linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+
+input[type=email] {
+  width: 200px;
+  border: 2px solid green;
+  border-radius: 4px;
+  transition: width .5s;
+}
+
+input[type=email]:focus {
+  width: 400px;
+  border: 2px solid white;
+  background-color : linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+
+input[type=file] {
+  color:#7cfc00;
+  transition: width .5s;
+}
+
+input[type=file]:hover {
+  border:1px solid #7cfc00;
+  border-radius:1px;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+label {
+  color : #8600b3;
+}
+
+h2.white{
+color:white;
+}
+h6.white{
+color:white;
+}
+h6.white:hover{
+color:red;
+}
+
+.login:hover{
+color:green;
+}
+
+.signup:hover{
+color:blue;
+background:white;
+border:1px solid blue;
+}
+
+.logout{
+color:white;
+background:#ff6600;
+}
+
+.logout:hover{
+color:#ff6600;
+background:white;
+border:1px solid #ff6600;
+}
+
+.update{
+color:white;
+background:#ff3399;
+}
+
+.update:hover{
+color:#ff3399;
+background:white;
+border:1px solid #ff3399;
+}
+
+.inbox{
+color:white;
+background:#00cccc;
+}
+
+.inbox:hover{
+color:#00cccc;
+background:white;
+border:1px solid #00cccc;
+}
+
+.outboxbtn{
+colour:white;
+background:#f4a460;
+}
+
+.outboxbtn:hover{
+color:#f4a460;
+background:white;
+border:1px solid #f4a460;
+}
+
+.home{
+color:white;
+background:#00ff7f;
+}
+
+.home:hover{
+color:#00cc66;
+background:white;
+border:1px solid #00cc66;
+}
+
+.username{
+color:#ff0080;
+}
+.name{
+color:#ffbb33;
+}
+.description{
+color:#111998;
+}
+
+.messagebtn{
+color:white;
+background:#944dff;
+transition: width 0.5s;
+}
+
+.messagebtn:hover{
+color:#944dff;
+background:white;
+border:1px solid #944dff;
+width:120px;
+}
+
+.insta:hover{
+color:yellow;
+}
+.fb:hover{
+color:blue;
+}
+.youtube:hover{
+color:red;
+}
+.upload{
+color:white;
+background-color:green;
+}
+.upload:hover{
+color:white;
+background-color:black;
+border : 2px solid red;
+}
+.white{
+color:white;
+}
+
+.updatebtn{
+color:white;
+background:#944dff;
+}
+.updatebtn:hover{
+color:#944dff;
+background:white;
+border:2px solid #944dff;
+}

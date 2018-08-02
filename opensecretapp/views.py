@@ -99,9 +99,8 @@ class OutBoxListView(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
         context = super(OutBoxListView, self).get_context_data(**kwargs)
-        m = Message.objects.values('id', 'msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=self.request.user.id).order_by('-d_t')
+        # m = Message.objects.values('id', 'msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=self.request.user.id).order_by('-d_t')
         # sorted(L, key=itemgetter(2))
-        print(m[0])
         context['messages'] = Message.objects.values('id', 'msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=self.request.user.id).order_by('-d_t')
         context['currentuser'] = OpenSecretUser.objects.get(user=self.request.user)
         return context

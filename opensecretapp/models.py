@@ -12,7 +12,7 @@ class OpenSecretUser(models.Model):
     description = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return str(self.user.id) + ' ' + self.user.username
+        return str(self.id) + ' ' + self.user.username
 
 class Message(models.Model):
     msg = models.CharField(max_length=128)

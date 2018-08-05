@@ -86,7 +86,7 @@ class MessagesListView(LoginRequiredMixin,ListView):
         # m=Message.objects.values('id', 'msg', 'd_t', 'sender', 'receiver').filter(receiver=self.request.user.id)
         # sorted(L, key=itemgetter(2))
         # print(m)
-        context['messages'] = Message.objects.values('id', 'msg', 'd_t').filter(receiver=self.request.user.id).order_by('-d_t')
+        context['messages'] = Message.objects.values('msg', 'd_t').filter(receiver=(OpenSecretUser.objects.get(user=self.request.user))).order_by('-d_t')
         context['currentuser'] = OpenSecretUser.objects.get(user=self.request.user)
         return context
 
@@ -101,7 +101,7 @@ class OutBoxListView(LoginRequiredMixin,ListView):
         context = super(OutBoxListView, self).get_context_data(**kwargs)
         # m = Message.objects.values('id', 'msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=self.request.user.id).order_by('-d_t')
         # sorted(L, key=itemgetter(2))
-        context['messages'] = Message.objects.values('id', 'msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=self.request.user.id).order_by('-d_t')
+        context['messages'] = Message.objects.values('msg', 'd_t', 'receiver__user__username', 'receiver__pro_pic').filter(sender=(OpenSecretUser.objects.get(user=self.request.user))).order_by('-d_t')
         context['currentuser'] = OpenSecretUser.objects.get(user=self.request.user)
         return context
 
@@ -129,14 +129,14 @@ class UserProfileView(LoginRequiredMixin,View):
         value = list(self.kwargs.values())
         if form.is_valid():
             msg = form.cleaned_data['message']
-            s = User.objects.get(id=self.request.user.id)
-            r = User.objects.get(username=value[0])
-            # print(s.username)
-            # print(r.username)
-            m = Message(msg=msg,sender=OpenSecretUser.objects.get(id=self.request.user.id),receiver=OpenSecretUser.objects.get(user__username=value[0]))
+            # s = OpenSecretUser.objects.get(user=self.request.user)
+            # r = OpenSecretUser.objects.get(user__username=value[0])
+            # print(s.id,s.user.username)
+            # print(r.id, r.user.username)
+            m = Message(msg=msg,sender=OpenSecretUser.objects.get(user=self.request.user),receiver=OpenSecretUser.objects.get(user__username=value[0]))
             m.save()
             u=OpenSecretUser.objects.get(user__username=value[0])
-            u=OpenSecretUser.objects.get(user=User.objects.get(username=value[0]))
+            # u=OpenSecretUser.objects.get(user=User.objects.get(username=value[0]))
             u.messages.add(m)
             return redirect("opensecretapp:home")
 
